@@ -1,24 +1,27 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './layouts/header/header.component';
-import { FooterComponent } from './layouts/footer/footer.component';
-import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { LayoutModule } from '@angular/cdk/layout';
+import { NavigatorComponent } from './components/navigator/navigator.component';
+import { TableComponent } from './components/table/table.component';
+import { MaterialModule } from './material-module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
-    FooterComponent,
-    MainLayoutComponent,
-    DashboardComponent
+    DashboardComponent,
+    NavigatorComponent,
+    TableComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NoopAnimationsModule,
+    LayoutModule,
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
