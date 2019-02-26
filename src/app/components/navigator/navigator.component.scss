@@ -1,16 +1,6 @@
-.sidenav-container {
-  height: 100%;
-  background-color: #c8d6e5;
-}
-
 .sidenav {
   width: 200px;
   background: #8395a7d2;
-  color: white;
-}
-
-.sidenav .mat-toolbar {
-  background: #8395a7;
   color: white;
 }
 
@@ -20,12 +10,7 @@
   z-index: 1;
 }
 
-.mat-toolbar{
-  background: #feca57;
-  color: black;
-  font-weight: bold;
-}
-
-.app-table {
- margin-top: 5%;
+.image-size {
+  width: 60%;
+  height: auto;
 }

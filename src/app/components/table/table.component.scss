@@ -5,28 +5,44 @@ table {
   .textfield {
     font-size: 17px;
     width: 80%;
-    padding-top: 2%;
-    padding-left: 1%;
   }
 
-  .fav-button{
-    margin-top: 3%;
-    margin-left: 85%;
+  .fav-button {
     background: #fec957;
     color: #000000d7;
   }
+
   
-  td, th {
-    width: 20%;
+  .table-cell {
+    width: 14%;
+    text-align: center !important; 
+    vertical-align: middle;
+  }
+
+  .footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+  }
+
+  th {
+    .mat-sort-header-button-center {
+      position: relative;
+      top: 50%;
+      left: 50%;
+    }
   }
 
   .notSelected {
-    background: #c8d6e5;
     color: #0000008a;
   }
 
-  .darkYellow{
-    background: #c8d6e5;
+  .selected{
     color: #fec957;
   }
   
