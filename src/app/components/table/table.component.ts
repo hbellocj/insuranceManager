@@ -4,7 +4,8 @@ import data from '../../../assets/InsurProducts.json';
 import * as action from '../../redux/actions';
 import { InsuranceObject } from 'src/app/objects/insurance.object.js';
 import { FavWindowComponent } from '../fav-window/fav-window.component.js';
-import { Store, State } from '@ngrx/store';
+import { Store } from '@ngrx/store';
+import { State } from 'src/app/redux/reducers/index.js';
 
 @Component({
   selector: 'app-table',
@@ -14,11 +15,9 @@ import { Store, State } from '@ngrx/store';
 
 
 export class TableComponent implements OnInit {
-  toggle = true;
-  favInsurance = [];
-
   displayedColumns: string[] = ['id', 'name', 'brandImage', 'kind', 'price', 'favourite'];
   dataSource: MatTableDataSource<InsuranceObject>;
+  favInsurances: InsuranceObject[] = [];
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -27,6 +26,17 @@ export class TableComponent implements OnInit {
     const insurances = Array.from({ length: data.length }, (_, k) => this.createNewInsuranceRow(k));
     // Assign the data to the data source for the table to render
     this.dataSource = new MatTableDataSource(insurances);
+
+    this.store.subscribe(state => {
+      if (state.insurance.action === 'add') {
+        this.favInsurances[this.favInsurances.length] = state.insurance.insuranceFav;
+      } else if (state.insurance.action === 'del') {
+        const insuranceToDelete = this.favInsurances.indexOf(state.insurance.insuranceFav);
+        if (insuranceToDelete !== -1) {
+          this.favInsurances.splice(insuranceToDelete, 1);
+        }
+      }
+    });
   }
   ngOnInit() {
     this.dataSource.paginator = this.paginator;
@@ -36,10 +46,12 @@ export class TableComponent implements OnInit {
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
 
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
   }
 
   addOrRemoveFav(insurance: InsuranceObject) {
-    insurance.favourite = insurance.favourite === true ? false : true;
     if (insurance.favourite) {
       this.store.dispatch(new action.DeleteFavInsurance(insurance));
       insurance.favourite = false;

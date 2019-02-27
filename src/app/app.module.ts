@@ -11,7 +11,7 @@ import { MaterialModule } from './material-module';
 import { FavTableComponent } from './components/fav-table/fav-table.component';
 import { FavWindowComponent } from './components/fav-window/fav-window.component';
 import { StoreModule } from '@ngrx/store';
-import { reducers, metaReducers } from './reducers';
+import { reducers } from './redux/reducers';
 
 @NgModule({
   declarations: [
@@ -31,7 +31,7 @@ import { reducers, metaReducers } from './reducers';
     NoopAnimationsModule,
     LayoutModule,
     MaterialModule,
-    StoreModule.forRoot(reducers, { metaReducers })
+    StoreModule.forRoot(reducers),
   ],
   providers: [],
   bootstrap: [AppComponent],

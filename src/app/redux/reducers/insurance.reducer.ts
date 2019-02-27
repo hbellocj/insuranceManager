@@ -2,37 +2,40 @@ import { InsuranceObject } from 'src/app/objects/insurance.object';
 import { InsuranceActionType, InsuranceActions } from '../actions/insurance.action';
 
 export interface InsuranceState {
-    insuranceFav: InsuranceObject[];
+    favInsurances: InsuranceObject[];
+    insuranceFav: InsuranceObject;
+    action: string;
 }
 
 export const initialState: InsuranceState = {
-    insuranceFav: null
+    favInsurances: [],
+    insuranceFav: null,
+    action: ''
 };
 
 export function insuranceReducer(state = initialState, action: InsuranceActions): InsuranceState {
-    let favInsurances: InsuranceObject[];
-    switch(action.type) {
+    switch (action.type) {
         case InsuranceActionType.ADD_FAV_ACTION: {
-            favInsurances[favInsurances.length + 1] = action.payload as InsuranceObject;
             return {
                 ...state,
-                insuranceFav: favInsurances
+                insuranceFav: action.payload as InsuranceObject,
+                action: 'add'
             };
         }
         case InsuranceActionType.DELETE_FAV_ACTION: {
-            const insuranceToDelete = favInsurances.indexOf(action.payload as InsuranceObject);
-            delete favInsurances[insuranceToDelete];
-            favInsurances.slice(insuranceToDelete, 1);
             return {
                 ...state,
-                insuranceFav: favInsurances
+                insuranceFav: action.payload as InsuranceObject,
+                action: 'del'
             };
-        }
-        case InsuranceActionType.GET_FAV_LIST_ACTION: {
+        } case InsuranceActionType.GET_FAVS_ACTION: {
             return {
                 ...state,
-                insuranceFav: favInsurances
+                favInsurances: action.payload as InsuranceObject[],
+                action: 'get'
             };
         }
+        default:
+            return state;
     }
 }

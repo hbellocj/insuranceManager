@@ -21,6 +21,14 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     overflow: auto;
 }
 
+.notSelected {
+    color: #0000008a;
+}
+
+.selected{
+    color: #fec957;
+}
+
 .sidenav-container {
     height: 100%;
     background-color: $backgroundGrey;
@@ -32,6 +40,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     font-weight: bold;
 }
 
+.fav-button-color {
+    background-color: $casandoraYellow !important;
+    color: black !important;
+}
+
 //Margins and paddings
 .pt-2p {
     padding-top: 2%
@@ -41,14 +54,22 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     padding-left: 1%
 }
 
+.mt-1p {
+    margin-top: 1% !important;
+}
+
 .mt-5p {
-    margin-top: 5%;
+    margin-top: 5% !important;
 }
 
 .mt-10p {
     margin-top: 10% !important;
 }
 
+
+.mr-10p {
+    margin-right: 10% !important;
+}
 
 .mr-20p {
     margin-right: 20% !important;
@@ -66,6 +87,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .position-relative{
     position: relative;
   }
+
+  .align-content-center {
+    text-align: center; 
+    vertical-align: middle;
+}
 
 //Sizes
 .size-80 {
