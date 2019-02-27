@@ -36,8 +36,8 @@ export class NavigatorComponent {
 
   openFavouritesWindow(): void {
     this.dialog.open(FavWindowComponent, {
-      width: '40%',
-      height: '40%',
+      width: '50%',
+      height: '60%',
       data: {
         insurances: this.favInsurances
       }

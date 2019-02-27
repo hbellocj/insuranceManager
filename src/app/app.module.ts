@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { LayoutModule } from '@angular/cdk/layout';
 import { NavigatorComponent } from './components/navigator/navigator.component';
@@ -16,7 +15,6 @@ import { reducers } from './redux/reducers';
 @NgModule({
   declarations: [
     AppComponent,
-    DashboardComponent,
     NavigatorComponent,
     TableComponent,
     FavTableComponent,
