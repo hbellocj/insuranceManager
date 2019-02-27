@@ -7,9 +7,10 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ### Prerequisites
 
 1. Have NODEjs installed: https://nodejs.org/es/download/
-2. Install Angular CLI, using npm:
+2. Install Angular CLI, using npm. From a command line, run the following command::
     > npm install -g @angular/cli
 
 ### Launch the application!
 
-Run `ng serve -o` and the application will be launched in `http://localhost:4200/`. 
+1. From a command line, run `npm install` to download the necessary libraries. 
+2. Run `ng serve -o` and the application will be launched in `http://localhost:4200/`. 
