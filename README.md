@@ -14,3 +14,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 1. From a command line, run `npm install` to download the necessary libraries. 
 2. Run `ng serve -o` and the application will be launched in `http://localhost:4200/`. 
+
+## Comments:
+
+Although there are test files in the components (because I generated the components with command line), I didn't have time to do them, so the tests are not valid.
